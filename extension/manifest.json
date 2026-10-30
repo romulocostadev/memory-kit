@@ -1,0 +1,36 @@
+{
+  "manifest_version": "0.3",
+  "name": "memory-kit",
+  "display_name": "Memory Kit",
+  "version": "0.1.0",
+  "description": "Connects Claude to your company's memory (ai-memory) with the invite you received.",
+  "long_description": "Memory Kit connects Claude Desktop to your company's ai-memory instance. Paste the private invite you received: it carries the server address, your key and which units you work on. Your key is stored in the system's credential store.",
+  "author": { "name": "Rômulo Costa", "url": "https://github.com/romulocostadev" },
+  "repository": { "type": "git", "url": "https://github.com/romulocostadev/memory-kit" },
+  "homepage": "https://github.com/romulocostadev/memory-kit",
+  "license": "MIT",
+  "keywords": ["memory", "ai-memory", "knowledge"],
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/index.js"],
+      "env": { "MEMORY_KIT_INVITE": "${user_config.invite}" }
+    }
+  },
+  "tools": [
+    { "name": "memory_kit_whoami", "description": "Who you are in the company memory and which units you write and read." }
+  ],
+  "tools_generated": true,
+  "compatibility": { "platforms": ["win32", "darwin"], "runtimes": { "node": ">=20.0.0" } },
+  "user_config": {
+    "invite": {
+      "type": "string",
+      "title": "Convite",
+      "description": "Cole aqui o convite que você recebeu (começa com aimkit1.). Ele é guardado no cofre de senhas do sistema.",
+      "sensitive": true,
+      "required": true
+    }
+  }
+}

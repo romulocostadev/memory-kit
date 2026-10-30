@@ -1,0 +1,20 @@
+{
+  "name": "memory-kit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Skills, Claude Desktop extension and installers to use an ai-memory instance with an invite.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.mjs\"",
+    "build": "node scripts/build-skills.mjs && node scripts/build-extension.mjs"
+  },
+  "devDependencies": {
+    "@anthropic-ai/mcpb": "2.1.2",
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "adm-zip": "^0.5.16"
+  }
+}
